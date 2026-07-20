@@ -1,0 +1,25 @@
+{
+  "name": "autodl-plugin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Codex plugin for safely operating AutoDL through a typed MCP server and documentation-aware Skill",
+  "type": "module",
+  "workspaces": [
+    "mcp"
+  ],
+  "scripts": {
+    "start": "bash scripts/start-mcp.sh",
+    "test": "npm run test --workspace autodl-mcp-server && npm run validate",
+    "validate": "AUTODL_MCP_DIR=$PWD/mcp node skills/autodl/scripts/validate-skill.mjs && node scripts/validate-plugin.mjs",
+    "docs:refresh": "node skills/autodl/scripts/refresh-docs.mjs",
+    "test:live": "npm run test:live --workspace autodl-mcp-server"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wuzihuang/AUTODL-PLUGIN.git"
+  },
+  "license": "MIT"
+}

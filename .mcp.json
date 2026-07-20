@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "autodl": {
+      "command": "bash",
+      "args": [
+        "./scripts/start-mcp.sh"
+      ],
+      "cwd": "."
+    }
+  }
+}

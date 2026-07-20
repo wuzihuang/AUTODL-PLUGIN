@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+  <title id="title">AutoDL Plugin</title>
+  <desc id="desc">Safety-first AutoDL automation for Codex and MCP</desc>
+  <defs>
+    <linearGradient id="bg" x1="40" y1="20" x2="1240" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="0.55" stop-color="#101C3B"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="120" y1="90" x2="1150" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#818CF8"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="54"/></filter>
+  </defs>
+  <rect width="1280" height="420" rx="32" fill="url(#bg)"/>
+  <circle cx="1100" cy="70" r="170" fill="#2563EB" opacity=".25" filter="url(#blur)"/>
+  <circle cx="140" cy="390" r="180" fill="#06B6D4" opacity=".18" filter="url(#blur)"/>
+  <g transform="translate(90 86)">
+    <rect width="244" height="244" rx="58" fill="#0B1220" stroke="#60A5FA" stroke-opacity=".35" stroke-width="2"/>
+    <path d="M55 174 105 66h34l42 108h-36l-8-23H97l-9 23H55Zm62-52h19l-9-28-10 28Z" fill="url(#accent)"/>
+    <circle cx="188" cy="68" r="24" fill="#22D3EE"/>
+    <path d="m181 68 6 6 10-13" fill="none" stroke="#083344" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="390" y="168" fill="#F8FAFC" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="72" font-weight="760">AutoDL Plugin</text>
+  <text x="394" y="224" fill="#BFDBFE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="28">Safety-first GPU infrastructure automation for Codex + MCP</text>
+  <g transform="translate(394 270)" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="650">
+    <rect width="154" height="48" rx="24" fill="#0E7490" fill-opacity=".32" stroke="#22D3EE" stroke-opacity=".5"/>
+    <text x="30" y="31" fill="#CFFAFE">26 MCP tools</text>
+    <rect x="172" width="178" height="48" rx="24" fill="#1D4ED8" fill-opacity=".3" stroke="#60A5FA" stroke-opacity=".5"/>
+    <text x="197" y="31" fill="#DBEAFE">103 docs pages</text>
+    <rect x="368" width="182" height="48" rx="24" fill="#4338CA" fill-opacity=".28" stroke="#818CF8" stroke-opacity=".5"/>
+    <text x="395" y="31" fill="#E0E7FF">Confirmation gates</text>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">AutoDL Plugin logo</title>
+  <defs>
+    <linearGradient id="g" x1="72" y1="64" x2="440" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#312E81"/>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#020617" flood-opacity=".45"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="#0B1220"/>
+  <path filter="url(#s)" d="M127 352 225 142h63l82 210h-70l-15-44h-79l-18 44h-61Zm102-100h37l-17-55-20 55Z" fill="url(#g)"/>
+  <circle cx="386" cy="144" r="42" fill="#22D3EE"/>
+  <path d="m373 144 9 9 18-22" fill="none" stroke="#082F49" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

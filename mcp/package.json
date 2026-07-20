@@ -1,0 +1,22 @@
+{
+  "name": "autodl-mcp-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Typed MCP server for the documented AutoDL developer APIs",
+  "type": "module",
+  "bin": {
+    "autodl-mcp": "./src/index.mjs"
+  },
+  "scripts": {
+    "start": "node src/index.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:live": "node test/live-readonly.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "4.4.3"
+  }
+}

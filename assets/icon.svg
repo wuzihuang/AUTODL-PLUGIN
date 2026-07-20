@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">AutoDL Plugin</title>
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0B1220"/>
+  <path d="M19 42 30 18h7l9 24h-8l-1.7-5H28l-2 5h-7Zm11.4-11h4.1l-1.9-6.2L30.4 31Z" fill="url(#g)"/>
+  <circle cx="48" cy="18" r="5" fill="#22D3EE"/>
+</svg>

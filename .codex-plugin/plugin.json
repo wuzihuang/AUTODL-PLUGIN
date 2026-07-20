@@ -1,0 +1,50 @@
+{
+  "name": "autodl",
+  "version": "1.0.0",
+  "description": "Safety-first AutoDL plugin with a typed local MCP server and a documentation-aware Skill for GPU instances, elastic deployments, images, storage, metrics, and operational guidance.",
+  "author": {
+    "name": "wuzihuang",
+    "url": "https://github.com/wuzihuang"
+  },
+  "homepage": "https://github.com/wuzihuang/AUTODL-PLUGIN",
+  "repository": "https://github.com/wuzihuang/AUTODL-PLUGIN",
+  "license": "MIT",
+  "keywords": [
+    "autodl",
+    "gpu",
+    "mcp",
+    "codex",
+    "container",
+    "elastic-deployment",
+    "machine-learning",
+    "cloud-computing"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "AutoDL",
+    "shortDescription": "Safely manage AutoDL GPU resources",
+    "longDescription": "Manage AutoDL Container Instance Pro and elastic deployments with 26 typed MCP tools, confirmation gates for billable or destructive actions, credential redaction, and a documentation-aware Skill covering lifecycle, billing, storage, networking, CUDA environments, and troubleshooting.",
+    "developerName": "wuzihuang",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Infrastructure management",
+      "Documentation guidance"
+    ],
+    "websiteURL": "https://www.autodl.com/",
+    "privacyPolicyURL": "https://www.autodl.com/docs/privacy_policy/",
+    "termsOfServiceURL": "https://www.autodl.com/docs/agreements/",
+    "defaultPrompt": [
+      "查看我的 AutoDL 余额和正在运行的实例",
+      "查询西北企业区的弹性部署 GPU 库存",
+      "帮我安全地创建一个 AutoDL Pro 实例，执行前先给我确认预览",
+      "解释 AutoDL 系统盘、数据盘、镜像和关机释放规则"
+    ],
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
+    "screenshots": [],
+    "brandColor": "#2563EB"
+  }
+}
