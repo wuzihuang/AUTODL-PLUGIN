@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-20T03:43:52.692Z",
+  "generated_at": "2026-08-20T07:28:10.217Z",
   "source": "https://www.autodl.com/docs/",
-  "search_index_sha256": "54a88754b8c29ef59206600587c173bbb64c80eb9fccd371c088a2b981356862",
+  "search_index_sha256": "499eae0a4a4b13771432f07ba8ba168e9e3b011d97358abeb9e072aa1014e2e2",
   "indexed_entries": 463,
   "unique_pages": 103,
   "reachable_pages": 103,
@@ -600,10 +600,10 @@
       "http_status": 200,
       "reachable": true,
       "source": "network",
-      "html_bytes": 88716,
-      "html_sha256": "82c21df039fe7d586f827a2c605019cc41ee76599cacc6485cc0c4ddfc6323c5",
-      "indexed_text_chars": 36645,
-      "indexed_text_sha256": "50169069a1828e1f8eea0c3a60ca480a8847cc91d55a8c2d948d47b29930c068"
+      "html_bytes": 91673,
+      "html_sha256": "26e6c47b63617d8c02a4d59d5de507f6e899037bfef16c33ed264d1d296eb9fb",
+      "indexed_text_chars": 39026,
+      "indexed_text_sha256": "59e938590eec7a55675539eb939dab0db118acd670304f37e86f3b41b7c48c45"
     },
     {
       "page": "gromacs",
@@ -878,9 +878,9 @@
       "reachable": true,
       "source": "network",
       "html_bytes": 43362,
-      "html_sha256": "433be84ecd2c8281486eb46cb0b7dca43f811318ed5f9486efd6120f939a3c0a",
+      "html_sha256": "91cd2c13dbb0fd93796fe029d8e8a8f1740709879c00724f3d69974f85cfe577",
       "indexed_text_chars": 441,
-      "indexed_text_sha256": "b062f0186e8f2902812c9aeb5e3e1c45ee12b76ffb90923acabca0259490e43a"
+      "indexed_text_sha256": "0f2f1a39b25a069828182237ded987d9f3375541abd1f73c3a8014c84b207690"
     },
     {
       "page": "maintenance",
@@ -1132,10 +1132,10 @@
       "http_status": 200,
       "reachable": true,
       "source": "network",
-      "html_bytes": 42014,
-      "html_sha256": "02515d32de7ea345d2c7e5f9bd02c24052179c37b0775d87c6d8d1d2044e58be",
-      "indexed_text_chars": 102,
-      "indexed_text_sha256": "fe7a405aae7798256590314c4298e323ab8d21e4e790b8b3f027d312c3a371f9"
+      "html_bytes": 42016,
+      "html_sha256": "6c3ef7b29a93792aa60567e63c6958d1c55ab625b9d9c63b48fc54a3091f1091",
+      "indexed_text_chars": 103,
+      "indexed_text_sha256": "bd4c9f03f349bfd70a098f420ed0226711d35fd7a905f161bda2869812d36144"
     },
     {
       "page": "network_turbo",

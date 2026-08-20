@@ -50,14 +50,21 @@ Use this skill to answer AutoDL questions and operate AutoDL resources through t
 
 ## Core operational facts
 
-- A regular instance is normally released after 15 consecutive powered-off days; tidal-compute instances use a shorter 7-day retention rule. Host delisting can also release an instance. Recheck the current official page before relying on a deadline.
-- Running status starts compute billing. Paid data-disk capacity can continue billing while an instance is off until reduced or the instance is released.
+- Paths: system disk is `/` (~30 GB, captured in images). Data disk is `/root/autodl-tmp` (50 GB free, expandable, local SSD, not captured in images). File storage is `/root/autodl-fs` (20 GB free, durable, ¥0.01/GB/day overage, 200k inode limit). NAS is `/root/autodl-nas` (20 GB free, regional, absent on tidal, ¥0.30/GB/month). Public data is `/root/autodl-pub` (read-only). Jupyter cwd is `/root`. Check usage with `source /root/.bashrc`. Those four special directories do not count as system-disk usage.
+- Hugging Face caches: `export HF_HOME=/root/autodl-tmp/cache/`.
+- SSH: `ssh -p PORT root@HOST` (hosts such as `connect.REGION.seetacloud.com` or `region-N.autodl.com`). User is `root`. Copy with `scp -rP` (capital `P`) to `/root/autodl-tmp`. Tunnel: `ssh -CNg -L 6006:127.0.0.1:6006 root@HOST -p PORT`. After an image change, remove the local `known_hosts` entry.
+- Cardless boot is console-only: 0.5 vCPU / 2 GB / no GPU / ¥0.1/h, one instance per main account. It is not in the Pro API. Pro `power_on` is GPU-mode only.
+- Extra paid data-disk capacity bills every calendar day while the instance exists, even when powered off, until shrink-to-0 or release.
+- Docker-in-container is unsupported. Multi-node / intranet IP is no longer supported for ordinary consumer GPUs.
+- Academic acceleration: `source /etc/network_turbo` for github.com / huggingface.co; `unset http_proxy https_proxy` when done.
+- Long jobs started from SSH, VSCode, or PyCharm should run under `screen`, `tmux`, or Jupyter's terminal. Optionally append `/usr/bin/shutdown` after the job.
+- A regular instance is normally released after 15 consecutive powered-off days; tidal-compute instances use a shorter 7-day retention rule and have no NAS. Host delisting can also release an instance. Recheck the current official page before relying on a deadline.
+- Running status starts compute billing.
 - Resetting the system or changing an image clears the system disk but not the data disk. Saving an image captures the system disk, not the data disk.
 - AutoDL does not currently support importing arbitrary external images; use platform base images or AutoDL-saved private images.
 - Arbitrary public ports require enterprise verification. Every instance maps ports 6006 and 6008; otherwise prefer SSH tunnels.
-- Long jobs started from SSH, VSCode, or PyCharm should run under `screen`, `tmux`, or another persistent process manager.
 - `nvidia-smi` reports the maximum CUDA version supported by the driver, not necessarily the CUDA toolkit installed in the image.
-- Current prices, promotions, inventory, region availability, quotas, and policy dates are live facts. Verify them instead of relying on the saved documentation snapshot.
+- Current GPU prices, promotions, inventory, region availability, quotas, and policy dates are live facts. Verify them instead of relying on the saved documentation snapshot. Do not invent stock or GPU prices.
 
 ## Response style
 
