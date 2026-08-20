@@ -1,6 +1,6 @@
 {
   "name": "autodl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Safety-first AutoDL plugin with a typed local MCP server and a documentation-aware Skill for GPU instances, elastic deployments, images, storage, metrics, and operational guidance.",
   "author": {
     "name": "wuzihuang",

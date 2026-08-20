@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[![Version](https://img.shields.io/badge/version-1.0.0-2563EB?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.0.1-2563EB?style=flat-square)](CHANGELOG.md)
 [![MCP Tools](https://img.shields.io/badge/MCP_tools-26-0891B2?style=flat-square)](#mcp-工具一览)
 [![Docs](https://img.shields.io/badge/official_docs-103%2F103-4F46E5?style=flat-square)](skills/autodl/references/docs-index.md)
 [![CI](https://img.shields.io/github/actions/workflow/status/wuzihuang/AUTODL-PLUGIN/ci.yml?branch=main&style=flat-square&label=tests)](https://github.com/wuzihuang/AUTODL-PLUGIN/actions)

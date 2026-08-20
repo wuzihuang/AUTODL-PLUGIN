@@ -119,6 +119,14 @@ const manifest = {
   pages: results.map(({ indexedText, ...item }) => item),
 };
 
+const stalePages = {
+  latest_price: "最近标注更新为 2022 年；不要当作现行价格或活动。",
+  spring_festival: "春节活动历史页；不是现行运营规则。",
+  tmp: "Caffe scratch/tmp 旧笔记；不是现行存储指引。",
+  suqian: "宿迁 A 区公测旧介绍；地区可用性以现行控制台为准。",
+  proxy_in_instance: "正文仍写只暴露一个端口；端口页已记录 6006 与 6008。",
+};
+
 const lines = [
   "# AutoDL 官方文档索引",
   "",
@@ -130,14 +138,27 @@ const lines = [
   "",
   "此索引用于帮助 Skill 在回答和操作前路由到正确的官方页面。页面内容可能更新；涉及价格、认证、配额、库存或规则时，应重新查看对应官方页面。",
   "",
+  "## 过时或历史页面",
+  "",
+  "以下页面仍在站点目录中，但内容已过时。回答时不要当作现行规则：",
+  "",
+  "| 页面 | 原因 |",
+  "|---|---|",
+];
+for (const [page, reason] of Object.entries(stalePages)) {
+  lines.push(`| [${escapeCell(page)}](${new URL(`${page}/`, docsBase).href}) | ${escapeCell(reason)} |`);
+}
+lines.push(
+  "",
   "| 页面 | 标题 | 主要章节 | 状态 |",
   "|---|---|---|---:|",
-];
+);
 for (const item of results) {
   const pageLabel = item.page === "/" ? "首页" : item.page;
   const sectionPreview = item.headings.slice(0, 8).join("；") + (item.headings.length > 8 ? `；…（共 ${item.headings.length} 节）` : "");
+  const staleNote = stalePages[item.page] ? "；过时" : "";
   lines.push(
-    `| [${escapeCell(pageLabel)}](${item.url}) | ${escapeCell(item.title)} | ${escapeCell(sectionPreview)} | HTTP ${item.http_status ?? "ERR"} |`,
+    `| [${escapeCell(pageLabel)}](${item.url}) | ${escapeCell(item.title)} | ${escapeCell(sectionPreview)} | HTTP ${item.http_status ?? "ERR"}${staleNote} |`,
   );
 }
 

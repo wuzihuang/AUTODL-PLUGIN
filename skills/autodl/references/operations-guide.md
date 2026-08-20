@@ -19,18 +19,19 @@
 
 ## Instance and data lifecycle
 
-- Ordinary instances retain data across power cycles, but the documented release rule is 15 consecutive powered-off days. Tidal-compute instances use 7 days.
+- Ordinary instances retain data across power cycles, but the documented release rule is 15 consecutive powered-off days. Tidal-compute instances use 7 days and have no NAS.
 - A host can have a delisting deadline. AutoDL says it provides advance notice, but the user must monitor and back up before release.
 - System and data disks are generally local SSD. Local performance is good, but there is no redundancy guarantee; unrecoverable failure is possible.
 - Reset or image replacement clears the system disk. Data disk, network disk, and file storage are unaffected according to the reset documentation.
 - Saving an image preserves only the system disk. To move a complete workload, handle the system image and data separately.
-- Default data disk is documented as 50 GB on regular instances; current expansion availability is host-specific.
+- Default data disk is documented as 50 GB on regular instances (`/root/autodl-tmp`, local SSD, not captured in images); current expansion availability is host-specific.
 - Hugging Face caches default under `/root/.cache`; for large models, point `HF_HOME` to `/root/autodl-tmp/cache/` when appropriate.
+- Cardless boot is console-only (0.5 vCPU / 2 GB / no GPU / ¥0.1/h, one per main account). It is not available through the Pro API; Pro `power_on` is GPU-mode only.
 
 ## Billing decisions
 
 - Compute billing starts when instance state is running. Power off unused compute promptly.
-- Paid data-disk capacity may bill daily even while the instance is powered off, until capacity is reduced to zero or the instance is released.
+- Extra paid data-disk capacity bills every calendar day while the instance exists, even when powered off, until shrink-to-0 or release.
 - Pro creation is documented as pay-as-you-go only.
 - Website prices, promotions, coupons, member discounts, duration packages, and billing conversion rules can change. Use the console as the current source of truth.
 - For elastic deployment, price filter fields are integer thousandths of a yuan per hour. Never pass a yuan decimal without converting.
@@ -38,11 +39,13 @@
 
 ## Storage choices
 
-- Local system/data disk: fastest and instance-local, but not durable storage.
-- AutoDL network disk: shared within a region; regions are independent.
-- File storage/NFS: for shared or durable workflows; switching dedicated NFS and ordinary storage changes what is mounted.
-- Public cloud drives or OSS: recommended by AutoDL for stable transfer, backup, and cross-instance migration.
-- Public data: copy datasets into the user's data disk before modifying or training against them.
+- Local system disk (`/`): ~30 GB, captured in images; check usage with `source /root/.bashrc`.
+- Local data disk (`/root/autodl-tmp`): 50 GB free, expandable, local SSD, not captured in images. Fastest instance-local IO, but not durable storage.
+- File storage (`/root/autodl-fs`): 20 GB free, durable, regional share; overage is documented as ¥0.01/GB/day. Hard limit of 200k inodes — too many small files can look like a full disk. Switching dedicated NFS and ordinary file storage changes what is mounted.
+- NAS / AutoDL 网盘 (`/root/autodl-nas`): 20 GB free, regional, documented overage ¥0.30/GB/month. Absent on tidal-compute instances.
+- Public / 公网网盘 (`netdisk`): third-party cloud drives or OSS via AutoPanel; recommended for stable transfer, backup, and cross-instance migration. Distinct from regional NAS.
+- Public data (`/root/autodl-pub`): read-only. Copy datasets into the user's data disk before modifying or training against them.
+- `/root/autodl-tmp`, `/root/autodl-nas`, `/root/autodl-fs`, and `/root/autodl-pub` do not count as system-disk usage.
 - Private images cannot be imported from outside AutoDL according to current documentation.
 
 ## Access and networking
@@ -59,8 +62,12 @@
 - Framework wheels often bundle the matching CUDA runtime. Do not install a separate CUDA toolkit unless compilation or another concrete dependency requires it.
 - `nvidia-smi` shows the driver's maximum supported CUDA version, not the toolkit actually installed in the environment.
 - Use domestic package mirrors when appropriate, but switch mirrors if one is throttled.
-- Run long tasks under `screen`, `tmux`, Jupyter's persistent terminal, or a service manager. Redirect logs to a file before disconnecting.
-- Multi-machine training is not generally supported for ordinary consumer GPUs; prefer single-machine multi-GPU when it fits.
+- Run long tasks under `screen`, `tmux`, Jupyter's persistent terminal, or a service manager. Redirect logs to a file before disconnecting. Optionally append `/usr/bin/shutdown` after the job.
+- Multi-machine / intranet-IP training is no longer supported for ordinary consumer GPUs; prefer single-machine multi-GPU when it fits.
+- Docker-in-container is unsupported.
+- Academic acceleration: `source /etc/network_turbo` for github.com / huggingface.co; `unset http_proxy https_proxy` when finished.
+- SSH user is `root`. Hosts look like `connect.REGION.seetacloud.com` or `region-N.autodl.com`. Copy with `scp -rP` (capital `P`) to `/root/autodl-tmp`. Tunnel: `ssh -CNg -L 6006:127.0.0.1:6006 root@HOST -p PORT`. After an image change, drop the local `known_hosts` entry.
+- WeChat notifications use `https://www.autodl.com`, not `https://api.autodl.com`.
 - Huawei Ascend and Moore Threads instances require their respective framework adapters and may have CPU-architecture constraints.
 
 ## Failure interpretation
@@ -69,6 +76,8 @@
 - Empty lists are valid and do not mean the tool failed.
 - A successful create response can precede full readiness. Poll status or events.
 - For Pro image saving, use the returned image UUID and poll the private-image list until status is finished.
+- ESD `reuse_container` can start from a leftover stopped container kept in a reuse pool for up to 7 days. The filesystem is not reset to the image; clean leftover files when they would affect the next run. `AutoDLContainerUUID` is still unique on reuse.
+- In ESD `cmd`, `conda activate` often fails. Call `/root/miniconda3/envs/ENV/bin/python` instead of activating the env.
 - A stopped/released container may still appear when `released=true` is requested.
 - Save `request_id` for AutoDL support whenever an API operation fails unexpectedly.
 

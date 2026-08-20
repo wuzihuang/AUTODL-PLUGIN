@@ -1,6 +1,6 @@
 # AutoDL MCP and API reference
 
-This reference reflects the official documentation snapshot indexed on 2026-07-20. Use live responses as the source of truth when fields differ.
+This reference reflects the official documentation snapshot indexed on 2026-08-20. Use live responses as the source of truth when fields differ. The `common_api` page still lists a “保存镜像” heading, but it is not a working developer endpoint. Real Pro image save is `POST /api/v1/dev/instance/pro/image/save` via `autodl_pro_save_image`.
 
 ## Authentication and response handling
 
@@ -55,6 +55,8 @@ Required fields:
 
 Optional fields: `data_center_list`, `instance_name`, `start_command`.
 
+`start_command` (create and power-on) runs after boot. Official docs say its success or failure does not fail boot and does not power the instance off. On power-on it overrides the command set at create time.
+
 Documented specification IDs at snapshot time:
 
 | Displayed GPU | Displayed specification | API specification ID |
@@ -88,6 +90,14 @@ Current container-template fields include:
 
 Deprecated documentation fields such as `region_sign`, `cuda_v`, and `service_port_protocol` should not be used for new deployment requests.
 
+Container environment variables documented for elastic deployments:
+
+| Variable | Meaning |
+|---|---|
+| `AutoDLContainerUUID` | Current container UUID; unique even when a leftover container is reused. |
+| `AutoDLDeploymentUUID` | Deployment UUID. |
+| `AutoDLDataCenter` | Region / `data_center` code of the running container. |
+
 ## Documented elastic-deployment region codes
 
 | Region | Code |
@@ -118,7 +128,7 @@ Region availability can change. Verify before creating resources.
 | `base-image-uxeklgirir` | TensorFlow, CUDA 11.2, Ubuntu 20.04, Python 3.8, TF 2.9.0 |
 | `base-image-mbr2n4urrc` | Miniconda, CUDA 11.6, Ubuntu 20.04, Python 3.8 |
 
-The appendix explicitly says newer images may exist. Prefer the relevant image-list tool when possible.
+This public-image UUID table is incomplete. The official appendix ends with an ellipsis and says newer images exist. Prefer the list-image tools for private images, and the live console or current official appendix for public images; do not treat this snapshot table as complete.
 
 ## WeChat and local metrics
 

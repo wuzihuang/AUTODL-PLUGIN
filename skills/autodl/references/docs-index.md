@@ -1,12 +1,24 @@
 # AutoDL 官方文档索引
 
-生成时间：2026-07-20T03:43:52.692Z
+生成时间：2026-08-20T07:28:10.217Z
 
 来源：https://www.autodl.com/docs/
 
 搜索索引共 463 个条目，归并为 103 个页面；103 个可访问，0 个不可访问。
 
 此索引用于帮助 Skill 在回答和操作前路由到正确的官方页面。页面内容可能更新；涉及价格、认证、配额、库存或规则时，应重新查看对应官方页面。
+
+## 过时或历史页面
+
+以下页面仍在站点目录中，但内容已过时。回答时不要当作现行规则：
+
+| 页面 | 原因 |
+|---|---|
+| [latest_price](https://www.autodl.com/docs/latest_price/) | 最近标注更新为 2022 年；不要当作现行价格或活动。 |
+| [spring_festival](https://www.autodl.com/docs/spring_festival/) | 春节活动历史页；不是现行运营规则。 |
+| [tmp](https://www.autodl.com/docs/tmp/) | Caffe scratch/tmp 旧笔记；不是现行存储指引。 |
+| [suqian](https://www.autodl.com/docs/suqian/) | 宿迁 A 区公测旧介绍；地区可用性以现行控制台为准。 |
+| [proxy_in_instance](https://www.autodl.com/docs/proxy_in_instance/) | 正文仍写只暴露一个端口；端口页已记录 6006 与 6008。 |
 
 | 页面 | 标题 | 主要章节 | 状态 |
 |---|---|---|---:|
@@ -52,7 +64,7 @@
 | [invoice](https://www.autodl.com/docs/invoice/) | 发票 | 发票；发票内容；发票类型；发票金额；附: 发票样例和盖章账单明细 | HTTP 200 |
 | [jupyterlab](https://www.autodl.com/docs/jupyterlab/) | JupyterLab | JupyterLab；基本功能介绍；附：使用常见问题 | HTTP 200 |
 | [katago](https://www.autodl.com/docs/katago/) | KataGo | KataGo；创建实例；安装ikatago-server；使用客户端访问ikatago服务 | HTTP 200 |
-| [latest_price](https://www.autodl.com/docs/latest_price/) | 最新价格与活动 | 最新价格与活动；2022-08-30更；2022-08-17更 | HTTP 200 |
+| [latest_price](https://www.autodl.com/docs/latest_price/) | 最新价格与活动 | 最新价格与活动；2022-08-30更；2022-08-17更 | HTTP 200；过时 |
 | [lb](https://www.autodl.com/docs/lb/) | 负载均衡 | 负载均衡；更Trick的方法；借助Lua脚本的方法 | HTTP 200 |
 | [linux](https://www.autodl.com/docs/linux/) | Linux基础 | Linux基础；列出文件/文件夹；新建/切换路径；查看当前路径；重命名、移动文件/文件夹；拷贝文件/文件夹；删除文件/文件夹；设置环境变量；…（共 18 节） | HTTP 200 |
 | [local_disk](https://www.autodl.com/docs/local_disk/) | 本地数据盘 | 本地数据盘 | HTTP 200 |
@@ -78,7 +90,7 @@
 | [price](https://www.autodl.com/docs/price/) | 充值与计费 | 充值与计费；充值；容器实例计费；按量计费；包年包月；转换计费方式；各型号GPU价格；实例扩容数据盘计费；…（共 13 节） | HTTP 200 |
 | [privacy_policy](https://www.autodl.com/docs/privacy_policy/) | 隐私政策 | 隐私政策 | HTTP 200 |
 | [projector](https://www.autodl.com/docs/projector/) | JetBrain Projector | JetBrain Projector；安装必要的依赖；安装projector；安装和运行PyCharm；通过SSH代理实例9999端口；本地浏览器打开PyCharm | HTTP 200 |
-| [proxy_in_instance](https://www.autodl.com/docs/proxy_in_instance/) | 暴露多个服务 | 暴露多个服务 | HTTP 200 |
+| [proxy_in_instance](https://www.autodl.com/docs/proxy_in_instance/) | 暴露多个服务 | 暴露多个服务 | HTTP 200；过时 |
 | [public_data](https://www.autodl.com/docs/public_data/) | 公开数据 | 公开数据 | HTTP 200 |
 | [pycharm](https://www.autodl.com/docs/pycharm/) | PyCharm远程开发 | PyCharm远程开发；远程项目开发；打开远程终端 | HTTP 200 |
 | [python](https://www.autodl.com/docs/python/) | Python3.X | Python3.X | HTTP 200 |
@@ -99,13 +111,13 @@
 | [scp](https://www.autodl.com/docs/scp/) | 上传数据 | 上传数据；使用文件存储上传；JupyterLab上传数据；SCP远程拷贝；高级使用方法；FileZilla；XShell | HTTP 200 |
 | [service_agreement](https://www.autodl.com/docs/service_agreement/) | 实例自定义服务补充协议 | 实例自定义服务补充协议 | HTTP 200 |
 | [source](https://www.autodl.com/docs/source/) | 软件源 | 软件源 | HTTP 200 |
-| [spring_festival](https://www.autodl.com/docs/spring_festival/) | 春节天天乐 | 春节天天乐；活动规则：；活动二优惠券领取入口；使用方法；春节现金红包 | HTTP 200 |
+| [spring_festival](https://www.autodl.com/docs/spring_festival/) | 春节天天乐 | 春节天天乐；活动规则：；活动二优惠券领取入口；使用方法；春节现金红包 | HTTP 200；过时 |
 | [ssh](https://www.autodl.com/docs/ssh/) | SSH远程连接 | SSH远程连接；SSH登录；SSH免密登录 | HTTP 200 |
 | [ssh_proxy](https://www.autodl.com/docs/ssh_proxy/) | SSH隧道 | SSH隧道；图形工具；SSH代理命令；代理实例中的端口到本地；代理本地端口到实例；常见问题 | HTTP 200 |
 | [student](https://www.autodl.com/docs/student/) | 学生认证 | 学生认证 | HTTP 200 |
-| [suqian](https://www.autodl.com/docs/suqian/) | 公测/宿迁A区介绍 | 公测/宿迁A区介绍 | HTTP 200 |
+| [suqian](https://www.autodl.com/docs/suqian/) | 公测/宿迁A区介绍 | 公测/宿迁A区介绍 | HTTP 200；过时 |
 | [tensorboard](https://www.autodl.com/docs/tensorboard/) | TensorBoard | TensorBoard；默认打开方式；切换tf logs目录 | HTTP 200 |
-| [tmp](https://www.autodl.com/docs/tmp/) | Tmp | Tmp | HTTP 200 |
+| [tmp](https://www.autodl.com/docs/tmp/) | Tmp | Tmp | HTTP 200；过时 |
 | [update_config](https://www.autodl.com/docs/update_config/) | 升降配置 | 升降配置 | HTTP 200 |
 | [video](https://www.autodl.com/docs/video/) | 视频教程 | 视频教程 | HTTP 200 |
 | [visdom](https://www.autodl.com/docs/visdom/) | Visdom | Visdom；SSH隧道的方法；自定义服务方法 | HTTP 200 |

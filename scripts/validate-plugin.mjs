@@ -24,7 +24,9 @@ const plugin = JSON.parse(
   await readFile(path.join(pluginRoot, ".codex-plugin/plugin.json"), "utf8"),
 );
 assert(plugin.name === "autodl", "plugin name 必须为 autodl");
-assert(plugin.version === "1.0.0", "plugin version 必须为 1.0.0");
+const pkg = JSON.parse(await readFile(path.join(pluginRoot, "package.json"), "utf8"));
+assert(plugin.version === pkg.version, `plugin version ${plugin.version} 必须与 package.json ${pkg.version} 一致`);
+assert(plugin.version === "1.0.1", "plugin version 必须为 1.0.1");
 assert(plugin.skills === "./skills/", "skills 路径异常");
 assert(plugin.mcpServers === "./.mcp.json", "MCP 配置路径异常");
 assert(plugin.repository === "https://github.com/wuzihuang/AUTODL-PLUGIN", "repository 地址异常");

@@ -1,6 +1,6 @@
 {
   "name": "autodl-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Codex plugin for safely operating AutoDL through a typed MCP server and documentation-aware Skill",
   "type": "module",
